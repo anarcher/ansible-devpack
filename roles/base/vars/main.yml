@@ -1,0 +1,13 @@
+---
+
+debs:
+    - binutils
+    - curl
+    - nmon
+    - git
+    - sudo
+    - tmux
+    - vim
+    - python-dev
+
+    

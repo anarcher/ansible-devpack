@@ -1,0 +1,7 @@
+---
+- hosts: local
+  sudo: yes
+  roles:
+      - base
+      - shell
+      - editor
