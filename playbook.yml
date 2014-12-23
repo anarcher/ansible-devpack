@@ -1,7 +1,8 @@
 ---
-- hosts: local
+- hosts: 127.0.0.1
+  connection: local
   sudo: yes
   roles:
       - base
-      - shell
-      - editor
+#      - shell
+#      - editor
