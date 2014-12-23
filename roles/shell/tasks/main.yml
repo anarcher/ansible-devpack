@@ -5,3 +5,21 @@
   shell: curl -L http://install.ohmyz.sh | sh
   args:
       creates: ~/.oh-my-zsh
+
+- name: Copy zshrc 
+  sudo: false
+  copy: src=files/zshrc dest=~/.zshrc 
+
+- name: Install fzf (https://github.com/junegunn/fzf)
+  sudo: false
+  shell: git clone https://github.com/junegunn/fzf.git ~/.fzf ; ~/.fzf/install 
+  args:
+      creates: ~/.fzf/install
+
+- name: Install autojump (https://github.com/joelthelion/autojump)
+  apt: pkg=autojump
+  when: "ansible_os_family == 'Debian'"
+
+- name: Install autojump via brew (https://github.com/joelthelion/autojump)
+  command: brew install autojump
+  when: "ansible_os_family == 'MacOSX'"
