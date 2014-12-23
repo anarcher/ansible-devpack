@@ -1,0 +1,7 @@
+---
+
+- name: Install oh-my-zsh 
+  sudo: false
+  shell: curl -L http://install.ohmyz.sh | sh
+  args:
+      creates: ~/.oh-my-zsh

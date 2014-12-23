@@ -9,5 +9,6 @@ debs:
     - tmux
     - vim
     - python-dev
+    - bash
 
     
