@@ -1,1 +1,1 @@
-ansible-playbook -K playbook.yml
+ansible-playbook -i hosts.yml -K playbook.yml

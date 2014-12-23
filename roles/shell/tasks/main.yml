@@ -1,8 +1,16 @@
 ---
 
+- name: Install zsh 
+  apt: pkg=zsh state=latest
+  when: "ansible_os_family == 'Debian'"
+
+- name: Install zsh (brew)
+  shell: brew install zsh 
+  when: "ansible_os_family == 'MacOSX'"
+
 - name: Install oh-my-zsh 
   sudo: false
-  shell: curl -L http://install.ohmyz.sh | sh
+  shell: curl -Lq http://install.ohmyz.sh | sh
   args:
       creates: ~/.oh-my-zsh
 
