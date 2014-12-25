@@ -10,5 +10,10 @@ debs:
     - vim
     - python-dev
     - bash
+    - ruby
+
+brews:
+    - ruby
+    - curl
 
     

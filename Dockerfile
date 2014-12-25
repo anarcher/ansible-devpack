@@ -6,8 +6,7 @@ RUN apt-get install -qy python-dev
 RUN apt-get install -qy python-pip
 RUN pip install ansible
 
-WORKDIR /root
+WORKDIR /root/devpack
 ADD . /root/devpack
 
 CMD ["/bin/bash"]
-

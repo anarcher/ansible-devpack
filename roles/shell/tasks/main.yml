@@ -10,13 +10,13 @@
 
 - name: Install oh-my-zsh 
   sudo: false
-  shell: curl -Lq http://install.ohmyz.sh | sh
+  shell: curl -L http://install.ohmyz.sh | sh
   args:
       creates: ~/.oh-my-zsh
 
 - name: Copy zshrc 
   sudo: false
-  copy: src=files/zshrc dest=~/.zshrc 
+  copy: src=zshrc dest=~/.zshrc 
 
 - name: Install fzf (https://github.com/junegunn/fzf)
   sudo: false
