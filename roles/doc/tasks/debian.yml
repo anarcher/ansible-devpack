@@ -1,0 +1,8 @@
+---
+
+- name: Add apt repo of Zeal
+  apt_repository: repo='ppa:jerzy-kozera/zeal-ppa' state=present
+
+- name: Install Zeal
+  apt: pkg="zeal" state=present
+
