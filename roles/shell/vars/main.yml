@@ -1,2 +1,9 @@
 ---
+debs:
+    - pv
+    - vifm
+    - ranger
+brews:
+    - pv
+    - ranger
 

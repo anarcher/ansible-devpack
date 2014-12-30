@@ -8,15 +8,15 @@
   shell: brew install zsh 
   when: "ansible_os_family == 'MacOSX'"
 
-- name: Install oh-my-zsh 
-  sudo: false
-  shell: curl -L http://install.ohmyz.sh | sh
-  args:
-      creates: ~/.oh-my-zsh
+#- name: Install oh-my-zsh 
+#  sudo: false
+#  shell: curl -L http://install.ohmyz.sh | sh
+#  args:
+#      creates: ~/.oh-my-zsh
 
-- name: Copy zshrc 
-  sudo: false
-  copy: src=zshrc dest=~/.zshrc 
+#- name: Copy zshrc 
+#  sudo: false
+#  copy: src=zshrc dest=~/.zshrc 
 
 - name: Install fzf (https://github.com/junegunn/fzf)
   sudo: false
@@ -31,3 +31,17 @@
 - name: Install autojump via brew (https://github.com/joelthelion/autojump)
   command: brew install autojump
   when: "ansible_os_family == 'MacOSX'"
+
+- name: Install command packages via apt
+  apt: pkg={{ item }} state=latest
+  with_items: debs
+  when: "ansible_os_family == 'Debian'"
+
+- name: Install command packages via brew
+  homebrew: pkg={{ item }} state=latest
+  with_items: brews
+  when: "ansible_os_family == 'MacOSX'"
+
+
+
+
