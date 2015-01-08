@@ -3,7 +3,9 @@ debs:
     - pv
     - vifm
     - ranger
+    - jq
 brews:
     - pv
     - ranger
+    - jq
 
