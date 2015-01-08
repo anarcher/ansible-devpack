@@ -4,8 +4,10 @@ debs:
     - vifm
     - ranger
     - jq
+    - tig
 brews:
     - pv
     - ranger
     - jq
+    - tig
 
