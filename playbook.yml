@@ -6,4 +6,4 @@
       - base
       - shell
       - doc
-#      - editor
+      - editor

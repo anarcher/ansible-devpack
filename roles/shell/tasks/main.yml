@@ -5,7 +5,7 @@
   when: "ansible_os_family == 'Debian'"
 
 - name: Install zsh (brew)
-  shell: brew install zsh 
+  homebrew: pkg=zsh state=latest
   when: "ansible_os_family == 'MacOSX'"
 
 #- name: Install oh-my-zsh 
@@ -41,7 +41,4 @@
   homebrew: pkg={{ item }} state=latest
   with_items: brews
   when: "ansible_os_family == 'MacOSX'"
-
-
-
 
