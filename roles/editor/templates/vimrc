@@ -1,0 +1,42 @@
+set guifont=Mensch\ Regular:h24
+set nocompatible
+set autoindent
+set smarttab
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set visualbell
+set fileencodings=ucs-bom,utf-8,euc-kr
+set mouse=
+
+syntax on
+"colo pablo
+colo ron
+
+" Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin "Lokaltog/vim-powerline"
+
+" vim powerline 
+let g:Powerline_symbols = 'fancy'
+set laststatus=2
+set t_Co=256
+
+" vim-go
+
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+
+
+
