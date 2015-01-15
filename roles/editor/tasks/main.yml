@@ -3,13 +3,15 @@
   apt: pkg=vim state=latest
   when: "ansible_os_family == 'Debian'"
 
-#- name: Set up Vundle
-#  shell: git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-#  args:
-#     creates: ~/.vim/bundle/Vundle.vim
+- name: Make sure bundle directory
+  file: path=~/.vim/bundle state=directory
 
-#- name: Configure Vundle plugins
-#  template: src=vimrc dest=~/.vimrc 
+- name: Make sure autoload directory
+  file: path=~/.vim/autoload state=directory
 
-#- name: Install Vundle plugins
-#  shell: vim +PluginInstall +qall
+- name: Install pathgen.vim
+  get_url: url=https://tpo.pe/pathogen.vim dest=~/.vim/autoload/pathogen.vim/
+
+- name: Setup .vimrc
+  template: src=vimrc dest=~/.vimrc
+

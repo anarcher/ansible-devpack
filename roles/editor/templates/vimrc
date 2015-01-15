@@ -1,3 +1,4 @@
+" set 
 set guifont=Mensch\ Regular:h24
 set nocompatible
 set autoindent
@@ -13,30 +14,12 @@ syntax on
 "colo pablo
 colo ron
 
-" Vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" pathogen 
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin "Lokaltog/vim-powerline"
-
-" vim powerline 
-let g:Powerline_symbols = 'fancy'
-set laststatus=2
-set t_Co=256
-
-" vim-go
-
+" vim-golang
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
-
-
 
