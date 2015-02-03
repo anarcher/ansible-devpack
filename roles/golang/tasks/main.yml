@@ -4,14 +4,22 @@
     creates: ~/.gobrew
 
 - name: Setup gobrew in bashprofile 1/2
-  lineinfile: dest=~/.bash_profile line='export PATH="$HOST/.gobrew/bin:$PATH"'
+  lineinfile: dest=~/.bash_profile line='export PATH="$HOME/.gobrew/bin:$PATH"'
 
 - name: Setup gobrew in bashprofile 2/2
-  lineinfile: dest=~/.bash_profile line='eval "$(gobrew init -)"'
+  lineinfile: dest=~/.bash_profile line="eval \"$(gobrew init -)\""
 
 - name: Install golang
   shell: . ~/.bashrc ; gobrew install {{ go_version }} 
+  args:
+      creates: ~/.gobrew/versions/{{ go_version }}
 
 - name: Use golang 
   shell: gobrew use {{ go_version }}
+
+- name: Mkdir ~/go
+  file: dest=~/go state=directory
+
+- name: Setup GOPATH
+  lineinfile: dest=~/.bash_profile line='export GOPATH=~/go'
 
