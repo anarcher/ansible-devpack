@@ -1,0 +1,8 @@
+- name: Add firefox ppa
+  sudo: yes
+  apt_repository: repo='ppa:ubuntu-mozilla-daily/firefox-aurora' state=present
+
+- name: Install firefox developer editon
+  sudo: yes
+  apt: pkg=firefox state=latest update_cache=yes
+

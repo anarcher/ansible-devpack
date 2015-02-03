@@ -9,3 +9,4 @@
       - editor
       - docker
       - notebook
+      - webbrowser
