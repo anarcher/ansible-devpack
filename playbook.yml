@@ -7,3 +7,5 @@
       - shell
       - doc
       - editor
+      - docker
+      - notebook

@@ -1,0 +1,15 @@
+- name: Add tlp/tld (power management tool) repository 
+  sudo: yes
+  apt_repository: repo='ppa:linrunner/tlp' state=present
+
+- name: Install tlp via apt
+  sudo: yes
+  apt: pkg=tlp state=latest update_cache=yes
+
+- name: Run tlp
+  sudo: yes
+  shell: tlp start
+
+
+
+
