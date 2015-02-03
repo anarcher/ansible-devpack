@@ -10,7 +10,7 @@
   file: path=~/.vim/autoload state=directory
 
 - name: Install pathgen.vim
-  get_url: url=https://tpo.pe/pathogen.vim dest=~/.vim/autoload/pathogen.vim/
+  get_url: url=https://tpo.pe/pathogen.vim dest=~/.vim/autoload/pathogen.vim
 
 - name: Setup .vimrc
   template: src=vimrc dest=~/.vimrc
