@@ -10,6 +10,7 @@
   sudo: yes
   shell: tlp start
 
-
-
+- name: Install powertop
+  apt: pkg=powertop state=latest update_cache=yes
+  sudo: yes
 
