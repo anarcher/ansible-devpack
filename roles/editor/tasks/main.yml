@@ -18,3 +18,13 @@
 - name: Set EDITOR is vim!
   lineinfile: dest=~/.bash_profile line="export EDITOR=vim"
 
+- name: Install vopher
+  copy: src=vopher-linux dest=~/bin/
+  when: "ansible_os_family == 'Debian'"
+
+- name: Copy Vopherfile 
+  copy: src=Vopherfile dest=~/.vim/
+
+- name: Install vim plugins
+  shell: ~/bin/vopher -f ~/.vim/Vopherfile -dir ~/.vim/bundles up
+
