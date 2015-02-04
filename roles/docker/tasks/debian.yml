@@ -8,4 +8,4 @@
 
 - name: Install latest docker via apt
   sudo: yes
-  apt: pkg=lxc-docker state=latest update_cache=yes
+  apt: pkg=lxc-docker state=latest 
