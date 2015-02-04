@@ -6,3 +6,10 @@
 
 - name: Binding .bash_profile to .bashrc
   lineinfile: dest=~/.bashrc line=". ~/.bash_profile"
+
+- name: Making ~/bin
+  file: path=~/bin state=directory
+
+- name: Append ~/bin to PATH 
+  lineinfile: dest=~/.bash_profile line="export PATH=$PATH:~/bin"
+

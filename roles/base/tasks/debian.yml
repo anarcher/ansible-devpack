@@ -1,10 +1,13 @@
 - name: Update apt packages infomation (apt-get update)
+  sudo: yes
   apt: update_cache=yes cache_valid_time=3600
 
 - name: Add git apt repository
+  sudo: yes
   apt_repository: repo='ppa:git-core/ppa' state=present
 
 - name: Install common system packages via apt
+  sudo: yes
   apt: pkg={{ item }} state=latest
   with_items: debs
 

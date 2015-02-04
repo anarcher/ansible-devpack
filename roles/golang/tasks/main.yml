@@ -10,16 +10,21 @@
   lineinfile: dest=~/.bash_profile line="eval \"$(gobrew init -)\""
 
 - name: Install golang
-  shell: . ~/.bashrc ; gobrew install {{ go_version }} 
+  shell: ~/.gobrew/bin/gobrew install {{ go_version }} 
   args:
       creates: ~/.gobrew/versions/{{ go_version }}
 
 - name: Use golang 
-  shell: gobrew use {{ go_version }}
+  shell: ~/.gobrew/bin/gobrew use {{ go_version }}
 
-- name: Mkdir ~/go
+- name: Mkdir {{ go_path }}
   file: dest=~/go state=directory
 
 - name: Setup GOPATH
-  lineinfile: dest=~/.bash_profile line='export GOPATH=~/go'
+  lineinfile: dest=~/.bash_profile line='export GOPATH={{ go_path }}'
 
+- name: Append GOPATH to PATH
+  lineinfile: dest=~/.bash_profile line='export PATH=$PATH:$GOPATH'
+
+- name: Install goenv (0.4.2)
+  copy: src="goenv_linux" dest="~/bin/"
