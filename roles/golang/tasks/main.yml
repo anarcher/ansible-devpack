@@ -27,4 +27,5 @@
   lineinfile: dest=~/.bash_profile line='export PATH=$PATH:$GOPATH'
 
 - name: Install goenv (0.4.2)
-  copy: src="goenv_linux" dest="~/bin/"
+  copy: src="goenv_linux" dest="~/bin/goenv" mode=0774
+  when: "ansible_os_family == 'Debian'"
