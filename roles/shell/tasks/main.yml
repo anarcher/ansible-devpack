@@ -32,6 +32,9 @@
   command: brew install autojump
   when: "ansible_os_family == 'MacOSX'"
 
+- name: Configure autojump in bash
+  lineinfile: dest=~/.bash_profile line="source /usr/share/autojump/autojump.bash"
+
 - name: Install command packages via apt
   apt: pkg={{ item }} state=latest
   with_items: debs
@@ -42,3 +45,8 @@
   with_items: brews
   when: "ansible_os_family == 'MacOSX'"
 
+- name: Copy git.bash
+  copy: src=git.bash dest="~/.git.bash"
+
+- name: Source git.bash
+  lineinfile: dest=~/.bash_profile line="source ~/.git.bash"

@@ -15,3 +15,6 @@
 - name: Setup .vimrc
   template: src=vimrc dest=~/.vimrc
 
+- name: Set EDITOR is vim!
+  lineinfile: dest=~/.bash_profile line="export EDITOR=vim"
+
