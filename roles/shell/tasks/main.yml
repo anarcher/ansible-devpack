@@ -3,6 +3,7 @@
 - name: Install zsh 
   apt: pkg=zsh state=latest
   when: "ansible_os_family == 'Debian'"
+  sudo: yes
 
 - name: Install zsh (brew)
   homebrew: pkg=zsh state=latest
@@ -27,6 +28,8 @@
 - name: Install autojump (https://github.com/joelthelion/autojump)
   apt: pkg=autojump
   when: "ansible_os_family == 'Debian'"
+  sudo: yes
+
 
 - name: Install autojump via brew (https://github.com/joelthelion/autojump)
   command: brew install autojump
@@ -39,6 +42,7 @@
   apt: pkg={{ item }} state=latest
   with_items: debs
   when: "ansible_os_family == 'Debian'"
+  sudo: yes
 
 - name: Install command packages via brew
   homebrew: pkg={{ item }} state=latest
