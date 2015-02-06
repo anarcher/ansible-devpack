@@ -1,5 +1,6 @@
 - name: Install synergy
   apt: pkg=synergy
+  sudo: yes
 
 - name: Copy synergy.conf (server)
   copy: src="synergy.conf" dest="/etc/synergy.conf"
