@@ -4,5 +4,4 @@
 
 - name: Install firefox developer editon
   sudo: yes
-  apt: pkg=firefox state=latest update_cache=yes
-
+  apt: pkg=firefox state=latest 

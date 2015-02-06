@@ -5,9 +5,11 @@ debs:
     - ranger
     - jq
     - tig
+    - tree
 brews:
     - pv
     - ranger
     - jq
     - tig
+    - tree
 

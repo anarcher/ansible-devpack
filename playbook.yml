@@ -10,3 +10,5 @@
       - docker
       - notebook
       - webbrowser
+      - gnome
+      - vm

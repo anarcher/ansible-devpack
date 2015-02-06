@@ -4,12 +4,13 @@
 
 - name: Install tlp via apt
   sudo: yes
-  apt: pkg=tlp state=latest update_cache=yes
+  apt: pkg=tlp state=latest 
 
 - name: Run tlp
   sudo: yes
   shell: tlp start
 
-
-
+- name: Install powertop
+  apt: pkg=powertop state=latest 
+  sudo: yes
 
