@@ -6,8 +6,8 @@
   copy: src="synergy.conf" dest="/etc/synergy.conf"
   sudo: yes
 
-- name: Install dconf-editor
-  apt: pkg=dconf-editor
+- name: Install common system packages via apt
   sudo: yes
-
+  apt: pkg={{ item }} state=latest
+  with_items: debs
 
