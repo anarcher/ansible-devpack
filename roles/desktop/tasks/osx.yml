@@ -1,0 +1,2 @@
+- name: Install synergy
+  homebrew: pkg=synergy
