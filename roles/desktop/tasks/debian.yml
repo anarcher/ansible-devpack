@@ -6,3 +6,8 @@
   copy: src="synergy.conf" dest="/etc/synergy.conf"
   sudo: yes
 
+- name: Install dconf-editor
+  apt: pkg=dconf-editor
+  sudo: yes
+
+
