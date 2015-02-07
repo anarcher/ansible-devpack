@@ -1,7 +1,11 @@
+#- name: Install gobrew
+#shell: curl -L https://raw.github.com/grobins2/gobrew/master/tools/install.sh | sh
+#  args:
+#    creates: ~/.gobrew
+#
+
 - name: Install gobrew
-  shell: curl -L https://raw.github.com/grobins2/gobrew/master/tools/install.sh | sh
-  args:
-    creates: ~/.gobrew
+  git: repo=https://github.com/anarcher/gobrew.git dest=~/.gobrew/ 
 
 - name: Setup gobrew in bashprofile 1/2
   lineinfile: dest=~/.bash_profile line='export PATH="$HOME/.gobrew/bin:$PATH"'

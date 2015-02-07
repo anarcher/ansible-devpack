@@ -26,10 +26,13 @@
   copy: src=Vopherfile dest=~/.vim/ 
 
 - name: Install vim plugins
-  shell: ~/bin/vopher -ui="simple" -f ~/.vim/Vopherfile -dir ~/.vim/bundle up
+  shell: ~/bin/vopher -ui="simple" --all=false -f ~/.vim/Vopherfile -dir ~/.vim/bundle up
 
-- name: Configure gofmt on save in .vimrc
-  lineinfile: dest=~/.vimrc line="autocmd FileType go autocmd BufWritePre <buffer> Fmt"
+#- name: Configure golang-compute in .vimrc
+#  lineinfile: dest=~/.vimrc line="autocmd FileType go compiler golang"
+
+#- name: Configure gofmt on save in .vimrc
+#  lineinfile: dest=~/.vimrc line="autocmd FileType go autocmd BufWritePre <buffer> Fmt"
 
 - name: Configure powerline in .vimrc
   lineinfile: dest=~/.vimrc line="let g:Powerline_symbols='fancy'"

@@ -1,6 +1,4 @@
 
-https://github.com/jnwhiteh/vim-golang
-
 https://github.com/tpope/vim-fugitive
 
 https://github.com/Lokaltog/vim-powerline
@@ -9,7 +7,13 @@ https://github.com/majutsushi/tagbar
 
 https://github.com/tpope/vim-markdown
 
+https://github.com/fatih/vim-go
+
+# https://github.com/rjohnsondev/vim-compiler-go
+
+# https://github.com/jnwhiteh/vim-golang
+
 # https://github.com/golangtw/go.vim
 
-https://github.com/fsouza/go.vim
+# https://github.com/fsouza/go.vim
 
