@@ -1,6 +1,6 @@
 ---
 
-- debs:
+debs:
     - dconf-editor
     - gconf-editor
     - ppa-purge

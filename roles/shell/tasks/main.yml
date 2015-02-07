@@ -25,11 +25,21 @@
   args:
       creates: ~/.fzf/install
 
-- name: Install autojump (https://github.com/joelthelion/autojump)
-  apt: pkg=autojump
-  when: "ansible_os_family == 'Debian'"
-  sudo: yes
+#- name: Install autojump (https://github.com/joelthelion/autojump)
+#  apt: pkg=autojump
+#  when: "ansible_os_family == 'Debian'"
+#  sudo: yes
+# bash with autojump has some bug. http://unix.stackexchange.com/questions/129348/autojump-auto-complete-feature-does-not-work
 
+- name: Git clone autojump
+  git: repo=git://github.com/joelthelion/autojump.git dest=/tmp/autojump
+  
+- name: Install autojump
+  shell: cd /tmp/autojump && ./install.py
+
+- name: Configure autojump in bash 
+  lineinfile: dest=~/.bash_profile line="[[ -s /home/{{ ansible_user_id }}/.autojump/etc/profile.d/autojump.sh ]] && source /home/{{ ansible_user_id }}/.autojump/etc/profile.d/autojump.sh"
+  when: "ansible_os_family == 'Debian'"
 
 - name: Install autojump via brew (https://github.com/joelthelion/autojump)
   command: brew install autojump
@@ -37,6 +47,7 @@
 
 - name: Configure autojump in bash
   lineinfile: dest=~/.bash_profile line="source /usr/share/autojump/autojump.bash"
+  when: "ansible_os_family == 'MacOSX'"
 
 - name: Install command packages via apt
   apt: pkg={{ item }} state=latest
