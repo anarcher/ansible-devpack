@@ -12,6 +12,8 @@ debs:
     - bash
     - ruby
     - openssh-server
+    - sshpass
+    - sysstat
 
 brews:
     - ruby

@@ -60,8 +60,8 @@
   with_items: brews
   when: "ansible_os_family == 'MacOSX'"
 
-- name: Copy git.bash
-  copy: src=git.bash dest="~/.git.bash"
+- name: Copy prompt.bash
+  copy: src=bash_prompt dest="~/.bash_prompt"
 
 - name: Source git.bash
-  lineinfile: dest=~/.bash_profile line="source ~/.git.bash"
+  lineinfile: dest=~/.bash_profile line="source ~/.bash_prompt"
