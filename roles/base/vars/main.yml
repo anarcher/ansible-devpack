@@ -5,6 +5,7 @@ debs:
     - curl
     - nmon
     - git
+    - mercurial
     - sudo
     - tmux
     - vim
