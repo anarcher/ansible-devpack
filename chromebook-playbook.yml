@@ -5,11 +5,5 @@
   roles:
       - base
       - shell
-      - doc
       - editor
       - golang
-      - docker
-      - notebook
-      - webbrowser
-      - gnome
-      - vm

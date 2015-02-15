@@ -10,6 +10,8 @@ debs:
     - tmux
     - vim
     - python-dev
+    - python-pip
+    - python-pycurl
     - bash
     - ruby
     - openssh-server
