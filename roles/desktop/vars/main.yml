@@ -4,3 +4,4 @@ debs:
     - dconf-editor
     - gconf-editor
     - ppa-purge
+    - libgnome2-bin

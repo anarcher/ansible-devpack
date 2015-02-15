@@ -1,0 +1,21 @@
+- name: Install nodejs via package system
+  apt: pkg=nodejs
+  sudo: yes
+  when: "ansible_os_family == 'Debian'"
+
+- name: Install npm via package system
+  apt: pkg=npm
+  sudo: yes
+  when: "ansible_os_family == 'Debian'"
+
+- name: Download node.js
+  homebrew: pkg=nodejs
+  when: "ansible_os_family == 'MacOS'"
+
+- name: Node version manager
+  shell: npm install -g n
+  sudo: yes
+
+- name: Install Node 
+  shell: n {{ node_version }}
+  sudo: yes
