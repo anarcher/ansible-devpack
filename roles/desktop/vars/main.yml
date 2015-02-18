@@ -5,3 +5,4 @@ debs:
     - gconf-editor
     - ppa-purge
     - libgnome2-bin
+    - blueman
