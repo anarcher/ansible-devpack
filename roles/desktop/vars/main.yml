@@ -6,3 +6,4 @@ debs:
     - ppa-purge
     - libgnome2-bin
     - blueman
+    - glipper
