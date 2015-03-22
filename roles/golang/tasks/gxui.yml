@@ -1,0 +1,9 @@
+# http://www.gonuts.kr/2015/03/gxui.html
+- name: install libs for gxui
+  apt: pkg=$item state=present
+  with_items:
+      - libxrandr-dev
+      - libxcursor-dev
+      - libxi-dev
+      - libxinerama-dev
+  when: "ansible_os_family == 'Debian'"

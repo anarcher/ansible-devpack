@@ -38,3 +38,5 @@
   copy: src="godep_linux" dest="~/bin/godep" mode=0774
   when: "ansible_os_family == 'Debian'"
 
+- include: gxui.yml
+
