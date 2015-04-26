@@ -3,8 +3,8 @@
   sudo: yes
   when: "ansible_os_family == 'Debian'"
 
-- name: Install vagrant plugin vagrant-hosts
-  shell: vagrant plugin install vagrant-hosts
+#- name: Install vagrant plugin vagrant-hosts
+#  shell: vagrant plugin install vagrant-hosts
 
 - name: Install virtualbox
   apt: pkg=virtualbox state=latest
