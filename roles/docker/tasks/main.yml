@@ -1,16 +1,3 @@
 - include: debian.yml
   when: "ansible_os_family == 'Debian'"
 
-- name: Add user to Docker group
-  sudo: yes
-  user: name={{ ansible_user_id }} groups=docker append=yes
-#  group: name=docker state=present
-
-- name: Start docker on boot
-  sudo: yes
-  service: name=docker state=started enabled=yes
-
-- name: Docker aliases
-  sudo: yes
-  copy: src=docker_aliases.sh dest=/etc/profile.d/docker_aliases.sh
-        mode=0644 owner=root group=root

@@ -16,6 +16,7 @@
   shell: npm install -g n
   sudo: yes
 
-- name: Install Node 
-  shell: n {{ node_version }}
-  sudo: yes
+#TODO:
+#- name: Install Node 
+#  shell: n {{ node_version }}
+#  sudo: yes

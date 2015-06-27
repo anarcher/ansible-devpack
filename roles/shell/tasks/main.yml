@@ -6,3 +6,26 @@
 - include: osx.yml
   when: "ansible_os_family == 'MacOSX'"
 
+- name: Install fzf (https://github.com/junegunn/fzf)
+  sudo: false
+  shell: git clone https://github.com/junegunn/fzf.git ~/.fzf ; ~/.fzf/install 
+  args:
+      creates: ~/.fzf/install
+
+- name: Git clone autojump
+  git: repo=git://github.com/joelthelion/autojump.git dest=/tmp/autojump
+  
+- name: Install autojump
+  shell: cd /tmp/autojump && ./install.py
+
+- name: Configure autojump in bash 
+  lineinfile: dest=~/.bash_profile line="[[ -s /home/{{ ansible_user_id }}/.autojump/etc/profile.d/autojump.sh ]] && source /home/{{ ansible_user_id }}/.autojump/etc/profile.d/autojump.bash"
+
+- name: Copy prompt.bash
+  copy: src=bash_prompt dest="~/.bash_prompt"
+
+- name: Source git.bash
+  lineinfile: dest=~/.bash_profile line="source ~/.bash_prompt"
+
+- name: Gem install tmuxinator
+  gem: name=tmuxinator state=present
