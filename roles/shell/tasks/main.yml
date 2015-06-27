@@ -19,7 +19,8 @@
   shell: cd /tmp/autojump && ./install.py
 
 - name: Configure autojump in bash 
-  lineinfile: dest=~/.bash_profile line="[[ -s /home/{{ ansible_user_id }}/.autojump/etc/profile.d/autojump.sh ]] && source /home/{{ ansible_user_id }}/.autojump/etc/profile.d/autojump.bash"
+  lineinfile: dest=~/.bash_profile line="[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh"
+  #lineinfile: dest=~/.bash_profile line="[[ -s /home/{{ ansible_user_id }}/.autojump/etc/profile.d/autojump.sh ]] && source /home/{{ ansible_user_id }}/.autojump/etc/profile.d/autojump.sh"
 
 - name: Copy prompt.bash
   copy: src=bash_prompt dest="~/.bash_prompt"
