@@ -38,5 +38,13 @@
   copy: src="godep_linux" dest="~/bin/godep" mode=0774
   when: "ansible_os_family == 'Debian'"
 
+- name: Install goenv (0.4.2)
+  copy: src="goenv_osx" dest="~/bin/goenv" mode=0774
+  when: "ansible_os_family == 'MacOSX'"
+
+- name: Install godep (2015.02.15 built)
+  copy: src="godep_osx" dest="~/bin/godep" mode=0774
+  when: "ansible_os_family == 'MacOSX'"
+
 - include: gxui.yml
 

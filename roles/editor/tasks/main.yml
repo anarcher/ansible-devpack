@@ -22,6 +22,10 @@
   copy: src=vopher_linux dest=~/bin/vopher mode=0774
   when: "ansible_os_family == 'Debian'"
 
+- name: Install vopher
+  copy: src=vopher_osx dest=~/bin/vopher mode=0774
+  when: "ansible_os_family == 'MacOSX'"
+
 - name: Copy Vopherfile 
   copy: src=Vopherfile dest=~/.vim/ 
 
