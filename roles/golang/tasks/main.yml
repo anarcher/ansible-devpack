@@ -46,5 +46,11 @@
   copy: src="godep_osx" dest="~/bin/godep" mode=0774
   when: "ansible_os_family == 'MacOSX'"
 
+- name: Copy _update_goenv 
+  copy: src="_update_goenv" dest="~/bin" 
+
+- name: Setup _update_goenv in .bash_profile
+  lineinfile: dest=~/.bash_profile line=". ~/bin/_update_goenv"
+
 - include: gxui.yml
 

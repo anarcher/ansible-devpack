@@ -1,0 +1,23 @@
+function _update_goenv() {
+    abs=$(cd $HOME; pwd -P)
+    echo $(pwd) | grep "^${abs}" &>/dev/null
+    if [ $? -eq 0 ];then
+        abs_r=$(echo $abs | sed -e 's/\//\\\//g')
+        w=$(echo $(pwd) | sed -e "s/^${abs_r}/\~/g")
+    else
+        w=''
+    fi
+
+    if [[ "$w" == "~/go"* ]] ; then
+        env_path=$(echo $w | cut -d"/" -f3)
+        if [ ! -z $env_path ] && [ -f "$HOME/go/$env_path/activate" ] && [ "$GOENVNAME" != "$env_path" ]
+        then
+            echo "activating..."
+            . ~/go/$env_path/activate
+        fi
+    fi
+
+}
+
+
+export PROMPT_COMMAND="_update_goenv"
