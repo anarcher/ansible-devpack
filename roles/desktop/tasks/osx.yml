@@ -1,2 +1,4 @@
 - name: Install synergy
   homebrew: pkg=synergy
+- name: Install cheatsheet
+  homebrew_cask: pkg=cheatsheet
