@@ -2,3 +2,5 @@
   homebrew: pkg=synergy
 - name: Install cheatsheet
   homebrew_cask: pkg=cheatsheet
+- name: Install spectacle
+  homebrew_cask: pkg=spectacle
