@@ -17,7 +17,7 @@ debs:
     - openssh-server
     - sshpass
     - sysstat
-
+    - openvpn
 brews:
     - ruby
     - curl
