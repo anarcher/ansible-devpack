@@ -1,0 +1,20 @@
+- name: Install pyenv
+  shell: curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+  args:
+      creates: ~/.pyenv/bin/pyenv
+- name: Set pyenv in bash profile 
+  lineinfile: dest=~/.bash_profile  line='export PATH=$HOME/.pyenv/bin:$PATH\neval \"$(pyenv init -)\"\neval \"$(pyenv virtualenv-init -)\"'
+
+- name: Install pip
+  pip: name=pip version=7.1.2
+  sudo: yes
+
+- name: Install virtualenv
+  pip: name=virtualenv
+  sudo: yes
+
+- name: Install autoenv
+  pip: name=autoenv
+  sudo: yes
+- name: Setup autoenv in bash profile
+  lineinfile: dest=~/.bash_profile line='#autoenv\nsource /usr/local/bin/activate.sh'
