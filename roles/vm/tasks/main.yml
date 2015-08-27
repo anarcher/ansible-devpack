@@ -1,3 +1,7 @@
+- apt: pkg=linux-headers-generic state=latest
+  sudo: yes
+  when: "ansible_os_family == 'Debian'"
+
 - name: Install vagrant
   apt: pkg=vagrant state=latest
   sudo: yes

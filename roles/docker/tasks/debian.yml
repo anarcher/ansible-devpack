@@ -23,3 +23,21 @@
   sudo: yes
   copy: src=docker_aliases.sh dest=/etc/profile.d/docker_aliases.sh
         mode=0644 owner=root group=root
+
+- name: Install docker-machine
+  get_url: url=https://github.com/docker/machine/releases/download/v0.4.0/docker-machine_linux-amd64 dest=/usr/local/bin/docker-machine validate_certs=no
+  sudo: yes
+      
+- name: Apply executable permissions to docker-mahcine
+  file: mode="u=rwx,g=rx,o=rx" path=/usr/local/bin/docker-machine
+  sudo: yes
+
+- name: Install docker-compose
+  get_url: url=https://github.com/docker/compose/releases/download/1.4.0/docker-compose-Linux-x86_64 dest=/usr/local/bin/docker-compose validate_certs=no
+  sudo: yes
+
+- name: Apply executable permissions to docker-compose
+  file: mode="u=rwx,g=rx,o=rx" path=/usr/local/bin/docker-compose
+  sudo: yes
+
+
