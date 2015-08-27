@@ -4,3 +4,5 @@
   homebrew_cask: pkg=cheatsheet
 - name: Install spectacle
   homebrew_cask: pkg=spectacle
+- name: Install jitouch
+  homebrew_cask: pkg=jitouch
